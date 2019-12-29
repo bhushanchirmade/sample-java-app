@@ -15,6 +15,11 @@ jobs:
         java-version: 1.8
     - name: Build with Gradle
       run: ./gradlew build
+    - name: sonar-scanner
+      uses: Warchant/setup-sonar-scanner@v1
+      with:
+        # Sonar-scanner version
+        version: 4.2.0.1873  
     - name: Build & Push to GitHub Package
       uses: opspresso/action-docker@master
       env:
@@ -24,3 +29,4 @@ jobs:
         # IMAGE_NAME: "user_id/image_name"
         TAG_NAME: "v0.0.1"
         LATEST: "true"
+
